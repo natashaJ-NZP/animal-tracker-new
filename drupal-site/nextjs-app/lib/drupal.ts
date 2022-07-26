@@ -6,3 +6,4 @@ export const drupal = new DrupalClient(
     previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
   }
 )
+  
