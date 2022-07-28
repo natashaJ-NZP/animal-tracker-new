@@ -1,21 +1,6 @@
 import React from "react";
-import { useTranslation } from "next-i18next"
-import { useRouter } from "next/router"
- 
-
-interface FormLoginProps extends React.HTMLProps<HTMLFormElement> {}
-
-interface FormStatus {
-  status: "success" | "error" | "fetching"
-  message?: string
-}
-
 
 export default function FormLogin(props: any) { 
-
-    const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
-    const { t } = useTranslation()
-    const router = useRouter()
 
     return (
 
