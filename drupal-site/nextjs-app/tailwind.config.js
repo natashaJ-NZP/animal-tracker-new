@@ -4,7 +4,7 @@ module.exports = {
   mode: "jit",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./stories/components/**/*.{js,ts,jsx,tsx}",
+    "./stories/components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     fontFamily: {
