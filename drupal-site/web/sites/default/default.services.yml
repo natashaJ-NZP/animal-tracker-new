@@ -116,7 +116,7 @@ parameters:
     auto_placeholder_conditions:
       # Max-age at or below which caching is not considered worthwhile.
       #
-      # Disable by setting to -1.
+      # Disable by setting to -1. 
       #
       # @default 0
       max-age: 0
@@ -132,7 +132,7 @@ parameters:
       #
       # @default []
       tags: []
-  # Cacheability debugging:
+  # Cacheability debugging:  
   #
   # Responses with cacheability metadata (CacheableResponseInterface instances)
   # get X-Drupal-Cache-Tags, X-Drupal-Cache-Contexts and X-Drupal-Cache-Max-Age
