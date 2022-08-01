@@ -61,7 +61,7 @@ export default function FormLogin({ className, ...props }: FormLoginProps) {
                     </p>
                 )}
                 <div className="title">
-                    <h1 className="ml-0 mt-5 mb-5">Login</h1>
+                    <h1 className="ml-0 mt-5 mb-5 bold">Login</h1>
                 </div>
                 <label className="text-gray-700 font-bold text-sm"> Username
                     <input
