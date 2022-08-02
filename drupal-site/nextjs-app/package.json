@@ -22,7 +22,7 @@
     "drupal-jsonapi-params": "^2.1.0",
     "jwt-decode": "^3.1.2",
     "next": "12.2.2",
-    "next-auth": "^4.0.0-beta.7",
+    "next-auth": "^4.10.3",
     "next-auth-client": "^1.5.0",
     "next-drupal": "^1.4.0",
     "next-i18next": "^11.3.0",
