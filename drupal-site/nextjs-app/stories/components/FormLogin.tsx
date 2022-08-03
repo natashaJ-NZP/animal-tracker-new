@@ -3,13 +3,8 @@ import classNames from "classnames";
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/router"
 
-interface FormLoginProps extends React.HTMLProps<HTMLFormElement> {}
-interface FormStatus {
-    status: "success" | "error" | "fetching"
-    message?: string
-}
 
-export default function FormLogin({ className, ...props }: FormLoginProps) { 
+export function FormLogin() { 
 
     return (
         /* LOGIN FORM */
