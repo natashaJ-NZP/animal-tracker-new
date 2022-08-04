@@ -7,7 +7,7 @@ import { clearJWT, getJWT } from "/lib/jwt"
 
 export default NextAuth({
   pages: {
-    signIn: "/login",
+    signIn: "/signIn",
   },
   secret: process.env.NEXTAUTH_SECRET,
   providers: [

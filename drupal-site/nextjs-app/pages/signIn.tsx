@@ -5,7 +5,18 @@ import styles from '../styles/Home.module.css'
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 
-const Login = () => {
+//Components
+import {FormLogin} from '../stories/components/FormLogin';
+
+interface FormLoginProps extends React.HTMLProps<HTMLFormElement> {}
+
+interface FormStatus {
+  status: "success" | "error" | "fetching"
+  message?: string
+}
+
+const Login = ({ className, ...props }: FormLoginProps) => {
+  const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const router = useRouter()
   const { status } = useSession()
 
@@ -17,7 +28,7 @@ const Login = () => {
   return (
     <div>
       {status === "unauthenticated" && (
-        <div>You are not logged in.</div>
+        <div><FormLogin /></div>
       )}
     </div>
   )
