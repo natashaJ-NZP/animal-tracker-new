@@ -4,7 +4,43 @@ import { signIn } from "next-auth/react"
 import { useRouter } from "next/router"
 
 
-export function FormLogin() { 
+interface FormLoginProps extends React.HTMLProps<HTMLFormElement> {}
+
+interface FormStatus {
+  status: "success" | "error" | "fetching"
+  message?: string
+}
+
+
+export function FormLogin({ className, ...props }: FormLoginProps) { 
+    const [formStatus, setFormStatus] = React.useState<FormStatus>(null!)
+    const router = useRouter()
+
+    React.useEffect(() => {
+        if (router.query.error === "CredentialsSignin") {
+          return setFormStatus({
+            status: "error",
+          })
+        }
+    
+        return setFormStatus(null!)
+      }, [router]);
+    
+      const onSubmit = async (event: any) => {
+        event.preventDefault()
+        const data = new FormData(event.target)
+    
+        setFormStatus({ status: "fetching" })
+    
+        await signIn("credentials", {
+          username: data.get("username"),
+          password: data.get("password"),
+        })
+    
+        return setFormStatus({
+          status: "success",
+        })
+      }
 
     return (
         /* LOGIN FORM */

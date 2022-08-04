@@ -8,15 +8,7 @@ import { useRouter } from "next/router"
 //Components
 import {FormLogin} from '../stories/components/FormLogin';
 
-interface FormLoginProps extends React.HTMLProps<HTMLFormElement> {}
-
-interface FormStatus {
-  status: "success" | "error" | "fetching"
-  message?: string
-}
-
-const Login = ({ className, ...props }: FormLoginProps) => {
-  const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
+const Login = () => {
   const router = useRouter()
   const { status } = useSession()
 
