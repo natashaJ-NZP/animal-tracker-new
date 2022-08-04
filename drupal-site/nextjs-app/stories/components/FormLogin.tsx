@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/router"
+import { useTranslation } from "next-i18next"
 
 
 interface FormLoginProps extends React.HTMLProps<HTMLFormElement> {}
@@ -14,6 +15,7 @@ interface FormStatus {
 
 export function FormLogin({ className, ...props }: FormLoginProps) { 
     const [formStatus, setFormStatus] = React.useState<FormStatus>(null!)
+    const { t } = useTranslation()
     const router = useRouter()
 
     React.useEffect(() => {
@@ -45,7 +47,10 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
     return (
         /* LOGIN FORM */
         <div className="login flex justify-center h-screen bg-gray-100"> 
-            <form>   
+            <form
+            onSubmit={onSubmit}
+            {...props}
+            >   
                 <div className="title">
                     <h1 className="ml-0 mt-5 mb-5 bold">Login</h1>
                 </div>
@@ -74,7 +79,12 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
                     </div>
                 </div>
         
-                <button className="font-semibold w-full text-white py-2 bg-purple rounded" type="submit">Login</button>
+                <button 
+                className="font-semibold w-full text-white py-2 bg-purple rounded" 
+                type="submit"
+                disabled={formStatus?.status === "fetching"}>
+                    Login
+                </button>
                 <div className="new-account-link mt-5 ml-0 text-center text-sm">Don't have an account?<a href="#" className="text-purple hover:underline-offset-2 hover:underline"> Sign Up</a></div>
             </form>
         </div>
