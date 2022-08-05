@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 
 //components
-import { Header } from "../stories/components/Header"
+import { Header } from "../stories/components/Main--header"
 import { Footer } from "../stories/components/Footer"
 
 const NextPage = () => {

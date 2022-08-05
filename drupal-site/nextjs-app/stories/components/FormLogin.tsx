@@ -4,53 +4,12 @@ import classNames from "classnames";
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/router"
 
-
-interface FormLoginProps extends React.HTMLProps<HTMLFormElement> {}
-
-interface FormStatus {
-  status: "success" | "error" | "fetching"
-  message?: string
-}
-
-
-export function FormLogin({ className, ...props }: FormLoginProps) { 
-    const [formStatus, setFormStatus] = React.useState<FormStatus>(null!)
-
-    const router = useRouter()
-
-    React.useEffect(() => {
-        if (router.query.error === "CredentialsSignin") {
-          return setFormStatus({
-            status: "error",
-          })
-        }
-    
-        return setFormStatus(null!)
-      }, [router]);
-    
-      const onSubmit = async (event: any) => {
-        event.preventDefault()
-        const data = new FormData(event.target)
-    
-        setFormStatus({ status: "fetching" })
-    
-        await signIn("credentials", {
-          username: data.get("username"),
-          password: data.get("password"),
-        })
-    
-        return setFormStatus({
-          status: "success",
-        })
-      }
+export function FormLogin() { 
 
     return (
         /* LOGIN FORM */
         <div className="login flex justify-center h-screen bg-gray-100"> 
-            <form
-            onSubmit={onSubmit}
-            {...props}
-            >   
+            <form>   
                 <div className="title">
                     <h1 className="ml-0 mt-5 mb-5 bold">Login</h1>
                 </div>
@@ -81,8 +40,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
         
                 <button 
                 className="font-semibold w-full text-white py-2 bg-purple rounded" 
-                type="submit"
-                disabled={formStatus?.status === "fetching"}>
+                type="submit">
                     Login
                 </button>
                 <div className="new-account-link mt-5 ml-0 text-center text-sm">Don't have an account?<a href="#" className="text-purple hover:underline-offset-2 hover:underline"> Sign Up</a></div>
