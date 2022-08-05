@@ -5,8 +5,18 @@ import styles from '../styles/Home.module.css'
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 
+//components
+import { Header } from "../stories/components/Header"
+import { Footer } from "../stories/components/Footer"
+
 const NextPage = () => {
-  return <div>You are now on the homepage.</div>
+  return (
+    <div>
+      <Header />
+      <div>You are now on the homepage.</div>
+      <Footer />
+    </div>
+  );
 }
 
 export default NextPage;

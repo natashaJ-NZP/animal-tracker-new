@@ -1,8 +1,8 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from "react";
 import classNames from "classnames";
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/router"
-import { useTranslation } from "next-i18next"
 
 
 interface FormLoginProps extends React.HTMLProps<HTMLFormElement> {}
@@ -15,7 +15,7 @@ interface FormStatus {
 
 export function FormLogin({ className, ...props }: FormLoginProps) { 
     const [formStatus, setFormStatus] = React.useState<FormStatus>(null!)
-    const { t } = useTranslation()
+
     const router = useRouter()
 
     React.useEffect(() => {
