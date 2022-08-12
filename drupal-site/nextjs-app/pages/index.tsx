@@ -1,4 +1,4 @@
-/* ANIMAL TRACKER HOMEPAGE */
+/* HOMEPAGE */
 
 import { GetStaticPropsResult } from "next"
 import { drupal } from "../lib/drupal"
@@ -31,7 +31,7 @@ export default HomePage;
 
 // getStaticProps() function - This is a "support statement" that helps Drupal absolutely KNOW that you are trying to fetch 
 // a menu and/or content data to show up for this Next.js page.
-// Do NOT remove this function!  You absolutely need this here if you want your menu/content to show up.
+// Do NOT remove this function!  You absolutely need this here if you want your menu/content to show up on the webpage.
 export async function getStaticProps(
   context:any
 ): Promise<GetStaticPropsResult<HomePageProps>> {

@@ -6,6 +6,7 @@ import { drupal } from "../../lib/drupal"
 import siteConfig from "/home/natashashanae94/drupal/sites/animal-tracker-project/drupal-site/nextjs-app/site.config"
 import { MenuMain, MenuMainProps } from "../components/Main--menu"
 
+//This interface associates the Header component with the Main Menu Links
 export interface HeaderProps {
   menus: {
     main: DrupalMenuLinkContent[]
