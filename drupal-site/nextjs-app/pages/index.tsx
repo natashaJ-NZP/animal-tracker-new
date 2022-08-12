@@ -1,14 +1,15 @@
 /* ANIMAL TRACKER HOMEPAGE */
 
-import Head from "next/head"
 import { GetStaticPropsResult } from "next"
-import { DrupalMenuLinkContent, DrupalNode } from "next-drupal"
 import { drupal } from "../lib/drupal"
 
 //Components
 import { Header, HeaderProps} from "../stories/components/Header"
 import { Footer } from "../stories/components/Footer"
 
+// This interface specifically references the TypeScript type of the .map() function's output of the
+// Main--menu.tsx file.  You will be using the "menus" name declared in Interface HomePageProps inside 
+// a component (See Below).
 interface HomePageProps {
   menus: HeaderProps["menus"]
 }
@@ -30,7 +31,7 @@ export default HomePage;
 
 // getStaticProps() function - This is a "support statement" that helps Drupal absolutely KNOW that you are trying to fetch 
 // a menu and/or content data to show up for this Next.js page.
-// Do NOT remove this function!  You absolutely need this here if you want you menu/content to show up.
+// Do NOT remove this function!  You absolutely need this here if you want your menu/content to show up.
 export async function getStaticProps(
   context:any
 ): Promise<GetStaticPropsResult<HomePageProps>> {
