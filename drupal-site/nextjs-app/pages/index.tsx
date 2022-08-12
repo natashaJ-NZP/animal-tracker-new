@@ -1,40 +1,41 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { useSession } from "next-auth/react"
-import { useRouter } from "next/router"
-import {
-  DrupalBlock,
-  DrupalMenuLinkContent,
-  DrupalTaxonomyTerm,
-} from "next-drupal"
+import Head from "next/head"
+import { GetStaticPropsResult } from "next"
+import { DrupalMenuLinkContent, DrupalNode } from "next-drupal"
+import { drupal } from "../lib/drupal"
 
 //components
-import { Header } from "../stories/components/Main--header"
+import { Header, HeaderProps} from "../stories/components/Header"
 import { Footer } from "../stories/components/Footer"
 
-export interface HeaderProps {
-  menus: {
-    header: DrupalMenuLinkContent[]
-  }
-  blocks: {
-    recipeCollections: DrupalTaxonomyTerm[]
-    footerPromo: DrupalBlock
-    disclaimer: DrupalBlock
-  }
+interface HomePageProps {
+  menus: HeaderProps["menus"]
 }
 
-const NextPage = ({menus, blocks}: HeaderProps) => {
+const HomePage = ({ menus }: HomePageProps) => {
   return (
     <div>
-      {menus?.header?.length ? (
-        <Header items={menus.header}/>
-      ) : null}
-      <div>You are now on the homepage.</div>
+      <Header menus={menus}/>
+      <div>This is the homepage.</div>
       <Footer />
     </div>
   );
 }
 
-export default NextPage;
+export default HomePage;
+
+
+export async function getStaticProps(
+  context:any
+): Promise<GetStaticPropsResult<HomePageProps>> {
+
+  // Fetch menus.
+  const mainMenu = await drupal.getMenu("main")
+
+  return {
+    props: {
+      menus: {
+        main: mainMenu.tree,
+      },
+    },
+  }
+}

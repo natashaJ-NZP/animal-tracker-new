@@ -1,15 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Header } from './Main--header';
+import { MenuMain } from './Main--menu';
 
 export default {
-  title: 'Example/Header',
-  component: Header,
+  title: 'Example/MenuMain',
+  component: MenuMain,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof Header>;
+} as ComponentMeta<typeof MenuMain>;
 
-const Template: ComponentStory<typeof Header> = (args) => <Header {...args as any} />;
+const Template: ComponentStory<typeof MenuMain> = (args) => <MenuMain {...args as any} />;
