@@ -2,9 +2,8 @@
 
 /* 
  * This file configures how Next-Auth in Next.js
- * communicates with the Simple O-Auth module in Drupal. These two 
- * Authentication software work together to validate a User when she signs in.
- * NOTE: You must use Next-Auth in Next.js if you're using Simple O-Auth in Drupal!
+ * communicates with the Simple O-Auth module in Drupal to validate a User signing in.
+ * NOTE: You must use Next-Auth if you're using Simple O-Auth in Drupal or it won't work!
  */
 
  /* DOCUMENTATION: 
@@ -12,7 +11,7 @@
   * 1. AUTHORIZATION CODE GRANT - https://next-drupal.org/docs/authentication/authorization-code-grant
   * 2. Next-Auth (for Next.js) - https://next-auth.js.org/getting-started/introduction
   * 3. Simple O-Auth (for Drupal) tutorial - https://www.drupal.org/project/simple_oauth/issues/3216850
-  * 4. Next-Drupal Auth Example - https://github.com/shadcn/next-drupal-auth
+  * 4. Next-Drupal Auth Example in GitHub- https://github.com/shadcn/next-drupal-auth
   */
 
 
@@ -23,7 +22,7 @@ import jwt_decode from "jwt-decode"
 import { clearJWT, getJWT } from "/lib/jwt"
 
 export default NextAuth({
-  //The pages 
+  //The pages section specify redirects
   // pages: {
   //   signIn: "/signIn",
   // },
