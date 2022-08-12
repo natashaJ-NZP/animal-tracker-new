@@ -19,7 +19,7 @@ See Documentation: https://classic.yarnpkg.com/lang/en/docs/install/#windows-sta
 cd into Animal-tracker-project/drupal-site/nextjs-app and run the following code in the cmd line:
 ```js
 yarn install
-
+```
 
 For Drupal: 
 * Required Modules
