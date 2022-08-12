@@ -14,9 +14,8 @@ interface HomePageProps {
 const HomePage = ({ menus }: HomePageProps) => {
   return (
     <div>
-      <Header menus={menus}/>
+      <Header menus={{ main: menus.main }} />
       <div>This is the homepage.</div>
-      <Footer />
     </div>
   );
 }

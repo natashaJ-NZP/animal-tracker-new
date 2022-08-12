@@ -4,20 +4,20 @@ import Head from "next/head"
 import { DrupalNode } from "next-drupal"
 import { drupal } from "../lib/drupal"
 import { MenuMain, MenuMainProps } from "../stories/components/Main--menu"
+import { Header, HeaderProps} from "../stories/components/Header"
 
 
 const RESOURCE_TYPES = ["node--page", "node--article"]
 
-interface NodePageProps {
+interface NodePageProps extends HeaderProps {
   resource: DrupalNode
-  menus: MenuMainProps["menus"]
 }
 
 export default function NodePage({ resource, menus }: NodePageProps) {
   if (!resource) return null
 
   return (
-    <MenuMain menus={menus} />
+    <MenuMain items={menus.main}  />
   );
 }
 

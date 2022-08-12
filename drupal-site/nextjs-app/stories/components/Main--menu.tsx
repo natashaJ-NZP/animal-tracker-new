@@ -3,24 +3,24 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 export interface MenuMainProps {
-  menus: {
-    main: DrupalMenuLinkContent[]
-  }
+  items: DrupalMenuLinkContent[]
 }
 
-export function MenuMain({menus}: MenuMainProps) {
-  const router = useRouter()
+export function MenuMain({ items }: MenuMainProps) {
+console.log({items});
 
   return (
     <nav>
-      <ul> 
-        <>
-          {menus.main.map((item) => {
-            <Link key={item.id} href={item.url} passHref>
-              <a>{item.title}</a>
-            </Link>
-          })}
-        </>
+      <ul>
+      <>
+        {items.map((item) => {
+             return <li key={item.id}>
+                <Link href={item.url} passHref>
+                  <a>{item.title}</a>
+                </Link>
+             </li>
+        })}
+     </>
       </ul>
     </nav>
   )
