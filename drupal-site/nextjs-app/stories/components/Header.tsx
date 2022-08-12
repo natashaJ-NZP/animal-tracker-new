@@ -3,16 +3,17 @@ import { DrupalMenuLinkContent, DrupalNode } from "next-drupal"
 import { GetStaticPropsResult } from "next" 
 import { drupal } from "../../lib/drupal"
 
-import siteConfig from "/home/natashashanae94/drupal/sites/animal-tracker-project/drupal-site/nextjs-app/site.config"
 import { MenuMain, MenuMainProps } from "../components/Main--menu"
 
-//This interface associates the Header component with the Main Menu Links
+// Interface HeaderProps - associates the Main Menu Links from Main--menu.tsx with Header.tsx.
+// This way, the links will show up in the header component.
 export interface HeaderProps {
   menus: {
     main: DrupalMenuLinkContent[]
   }
 }
 
+//Passed Interface HeaderProps as 
 export function Header({ menus }: HeaderProps) {
 
   return (
@@ -22,6 +23,9 @@ export function Header({ menus }: HeaderProps) {
   )
 }
 
+// getStaticProps() function - This is a "support statement" that helps Drupal absolutely KNOW that you are trying to fetch 
+// a menu and/or content data to show up for this Next.js page.
+// Do NOT remove this function!  You absolutely need this here if you want your menu/content to show up on the webpage.
 export async function getStaticProps(
     context: any
   ): Promise<GetStaticPropsResult<HeaderProps>> {

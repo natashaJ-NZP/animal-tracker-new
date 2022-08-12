@@ -1,3 +1,5 @@
+/* SIGNIN (LOGIN) PAGE */
+
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -8,6 +10,9 @@ import { useRouter } from "next/router"
 //Components
 import {FormLogin} from '../stories/components/FormLogin';
 
+// This login checks to see if the user is authenticated.  
+// If the user is authenticated, she will be redirected to the homepage. 
+// If not, a signin form (<FormLogin />) will appear, prompting users to sign in.
 const Login = () => {
   const router = useRouter()
   const { status } = useSession()

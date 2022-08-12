@@ -8,14 +8,14 @@ import { Header, HeaderProps} from "../stories/components/Header"
 import { Footer } from "../stories/components/Footer"
 
 // This interface specifically references the TypeScript type of the .map() function's output of the
-// Main--menu.tsx file.  You will be using the "menus" name declared in Interface HomePageProps inside 
-// a component (See Below).
+// Main--menu.tsx file.  Then the name "menus" is passed down as a prop, where it will then be declared inside 
+// <Header /> component (See Below).
 interface HomePageProps {
   menus: HeaderProps["menus"]
 }
 
 // Homepage() function - Made a reference to the Header, Content, and Footer components to display on the homepage.  
-// The Header component has a reference to Drupal's Main Navigation Menu built in Main--Menu.tsx.
+// The Header component has a reference to Drupal's Main Navigation Menu (see: Main--Menu.tsx).
 
 const HomePage = ({ menus }: HomePageProps) => {
   return (
