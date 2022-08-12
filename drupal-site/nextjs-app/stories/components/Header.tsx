@@ -15,7 +15,7 @@ export interface HeaderProps {
 export function Header({ menus }: HeaderProps) {
 
   return (
-    <header className="bg-black">
+    <header className="bg-white">
         <MenuMain items={menus.main} />
     </header>
   )
