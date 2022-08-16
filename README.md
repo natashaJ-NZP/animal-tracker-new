@@ -24,7 +24,7 @@ yarn install
 # How to Set Up Project
 
 ## Overview
-Note: You only need to follow these steps if you don't have the following setup on your machine: WSL2, Docker, DDEV, and Drush. I highly recommended setting up a WSL2 Environment to run this!! We are going to set up WSL2, clone this project, run docker desktop, download DDEV, then download Drush after running DDEV.
+Note: You only need to follow these steps if you don't have the following setup on your machine: WSL2, Docker, DDEV, and Drush. I highly recommended setting up a WSL2 Environment to run the application!! We are going to set up WSL2, clone this project, run docker desktop, download DDEV, then download Drush after running DDEV.
 
 ## Step 1)
 Set up WSL2 onto your machine if you haven't done so.
