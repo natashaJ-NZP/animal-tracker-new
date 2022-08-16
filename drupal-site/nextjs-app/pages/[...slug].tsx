@@ -1,3 +1,7 @@
+//This page is responsible for rendering dynamic pages in Headless Drupal.
+//Basically, this file manages the fetching of JSON data that contains the type of
+//node you want to fetch content from.  
+
 import * as React from "react"
 import { GetStaticPathsResult, GetStaticPropsResult } from "next"
 import Head from "next/head"
