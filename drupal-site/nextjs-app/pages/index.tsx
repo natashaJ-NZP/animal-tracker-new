@@ -16,7 +16,6 @@ interface HomePageProps {
 
 // Homepage() function - Made a reference to the Header, Content, and Footer components to display on the homepage.  
 // The Header component has a reference to Drupal's Main Navigation Menu (see: Main--Menu.tsx).
-
 const HomePage = ({ menus }: HomePageProps) => {
   return (
     <div>
