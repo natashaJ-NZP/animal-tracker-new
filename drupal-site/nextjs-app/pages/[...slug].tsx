@@ -7,7 +7,16 @@ import { MenuMain, MenuMainProps } from "../stories/components/Main--menu"
 import { Header, HeaderProps} from "../stories/components/Header"
 
 
-const RESOURCE_TYPES = ["node--page", "node--article"]
+const RESOURCE_TYPES = [
+  "node--page", 
+  "node--article", 
+  "node--animal",
+  "node--assessement",
+  "taxonomy_term--species",
+  "taxonomy_term--team",
+  "taxonomy_term--location",
+  "taxonomy_term--tags"
+]
 
 interface NodePageProps extends HeaderProps {
   resource: DrupalNode
