@@ -7,10 +7,9 @@ The Users sign in to view the homepage, which displays the list of animals at th
 
 The Animal Welfare Tracker is built with a Next.js Frontend and a Headless Drupal 9 Backend.
 
-* For Drupal: 
-Required Modules:
-- Simple O-Auth 
-- JSON API:Web Services
+* For Drupal (Required Modules): 
+Simple O-Auth 
+JSON API:Web Services
 
 * For Next.js: 
 must have yarn installed onto your system!
