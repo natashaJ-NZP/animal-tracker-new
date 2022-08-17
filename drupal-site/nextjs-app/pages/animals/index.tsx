@@ -5,6 +5,7 @@
 
 import { GetStaticPropsContext, GetStaticPropsResult } from "next"
 import { DrupalNode } from "next-drupal"
+import { NodeAnimalItem } from "../../stories/components/node--animal--item"
 
 import { drupal } from "../../lib/drupal"
 import { getGlobalElements } from "../../lib/get-global-elements"
@@ -17,16 +18,37 @@ interface AnimalsPageProps {
 }
 
 
-export default function AnimalsPage({
-    animals
-}: AnimalsPageProps) {
+export default function AnimalsPage({ animals }: AnimalsPageProps) {
     return (
         <>
             <ul>
                 {animals.map((animal) => (   
-                    <li key={animal.id} node={animals}></li>
+                    <li><NodeAnimalItem key={animal.id} node={animals} /></li>
                 ))}
             </ul>     
         </>
     );
 }
+
+export async function getStaticProps(
+    context: GetStaticPropsContext
+  ): Promise<GetStaticPropsResult<AnimalsPageProps>> {
+    // Fetch all published articles sorted by date.
+    const animals = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+      "node--animals",
+      context,
+      {
+        params: getParams("node--animals", "card")
+          .addSort("created", "DESC")
+          .getQueryObject(),
+      }
+    )
+  
+    return {
+      props: {
+        ...(await getGlobalElements(context)),
+        animals,
+      },
+    }
+}
+  

@@ -86,3 +86,6 @@ natashashanae94@drupal-site-web:/var/www/html$
 
 # Conclusion
 You may now run this app locally!
+
+## Recommended Reading
+For more information, please read the internal READ.ME files located in the drupal-site folder and nextjs-app folder. These files will also include links to helpful documentation to configuring next-drupal.
