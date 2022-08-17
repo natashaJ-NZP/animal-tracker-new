@@ -5,7 +5,7 @@
 
 import { GetStaticPropsContext, GetStaticPropsResult } from "next"
 import { DrupalNode } from "next-drupal"
-import { NodeAnimalItem } from "../../stories/components/node--animal--item"
+import { NodeAnimalsItem } from "../../stories/components/node--animals--item"
 
 import { drupal } from "../../lib/drupal"
 import { getGlobalElements } from "../../lib/get-global-elements"
@@ -23,7 +23,7 @@ export default function AnimalsPage({ animals }: AnimalsPageProps) {
         <>
             <ul>
                 {animals.map((animal) => (   
-                    <li><NodeAnimalItem key={animal.id} node={animals} /></li>
+                    <li><NodeAnimalsItem key={animal.id} node={animal} /></li>
                 ))}
             </ul>     
         </>

@@ -7,10 +7,11 @@ interface NodeAnimalItemProps {
     node: DrupalNode
 }
 
-export function NodeAnimalItem({ node }: NodeAnimalItemProps) {
+export function NodeAnimalsItem({ node, ...props }: NodeAnimalItemProps) {
     return(
         <>
-            <div>
+            <h2>{ node.title }</h2>
+            <div {...props}>
                 <Link href={node.path.alias} passHref></Link>
             </div>
         </>
