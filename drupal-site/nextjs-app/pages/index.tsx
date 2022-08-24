@@ -2,6 +2,11 @@
 
 import { GetStaticPropsResult } from "next"
 import { drupal } from "../lib/drupal"
+import { NodeAnimalsItem } from "../stories/components/node--animals--item"
+import { DrupalNode } from "next-drupal"
+import { getGlobalElements } from "../lib/get-global-elements"
+import { getParams } from "../lib/get-params"
+
 
 //Components
 import { Header, HeaderProps} from "../stories/components/Header"
@@ -12,15 +17,18 @@ import { Footer } from "../stories/components/Footer"
 // <Header /> component (See Below).
 interface HomePageProps {
   menus: HeaderProps["menus"]
+  animals: DrupalNode[]
 }
 
 // Homepage() function - Made a reference to the Header, Content, and Footer components to display on the homepage.  
 // The Header component has a reference to Drupal's Main Navigation Menu (see: Main--Menu.tsx).
-const HomePage = ({ menus }: HomePageProps) => {
+const HomePage = ({ menus, animals }: HomePageProps) => {
   return (
     <div>
       <Header menus={{ main: menus.main }} />
-      <div>This is the homepage.</div>
+        {animals.map((animal) => (   
+            <li><NodeAnimalsItem key={animal.id} node={animal} /></li>
+        ))}
       <Footer />
     </div>
   );
@@ -38,11 +46,24 @@ export async function getStaticProps(
   // Fetch menus.
   const mainMenu = await drupal.getMenu("main")
 
+  //Fetch animals.
+  const animals = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+    "node--animal",
+    context,
+    {
+      params: getParams("node--animals", "card")
+        .addSort("created", "DESC")
+        .getQueryObject(),
+    }
+  )
+
   return {
     props: {
+      ...(await getGlobalElements(context)),
       menus: {
         main: mainMenu.tree,
       },
+    animals  
     },
   }
 }

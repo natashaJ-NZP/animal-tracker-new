@@ -13,7 +13,7 @@ import { getParams } from "../../lib/get-params"
 
 //Components
 
-interface AnimalsPageProps {
+export interface AnimalsPageProps {
     animals: DrupalNode[]
 }
 

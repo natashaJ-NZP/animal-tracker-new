@@ -15,7 +15,7 @@ export function getParams(
       .addFields("node--page", ["title", "body", "status"])
   }
 
-  if (name === "node--animals") {
+  if (name === "node--animal") {
     return params
       .addFilter("status", "1")
       .addInclude(["field_media_image.field_media_image", "uid.user_picture"])

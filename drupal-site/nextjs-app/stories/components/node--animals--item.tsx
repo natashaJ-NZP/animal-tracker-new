@@ -12,7 +12,9 @@ export function NodeAnimalsItem({ node, ...props }: NodeAnimalItemProps) {
         <>
             <h2>{ node.title }</h2>
             <div {...props}>
-                <Link href={node.path.alias} passHref></Link>
+                <Link href={node.path.alias} passHref>
+                    <a>{node.field_accession_number}</a>
+                </Link>
             </div>
         </>
     );
