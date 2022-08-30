@@ -35,10 +35,10 @@ export async function getStaticProps(
   ): Promise<GetStaticPropsResult<AnimalsPageProps>> {
     // Fetch all published articles sorted by date.
     const animals = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-      "node--animals",
+      "node--animal",
       context,
       {
-        params: getParams("node--animals", "card")
+        params: getParams("node--animal", "card")
           .addSort("created", "DESC")
           .getQueryObject(),
       }
